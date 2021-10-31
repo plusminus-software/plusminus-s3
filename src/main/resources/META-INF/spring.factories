@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-software.plusminus.s3.config.S3Config
+software.plusminus.s3.config.S3Autoconfig

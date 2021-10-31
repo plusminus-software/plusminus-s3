@@ -9,9 +9,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @EnableAutoConfiguration
-@SpringBootTest(classes = S3Config.class)
+@SpringBootTest(classes = S3Autoconfig.class)
 @ActiveProfiles("test")
-public class S3ConfigTest {
+public class S3AutoconfigTest {
 
     @Test
     public void testAutoConfiguration() {

@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-import software.plusminus.s3.config.S3Config;
+import software.plusminus.s3.config.S3Autoconfig;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -24,7 +24,7 @@ import static junit.framework.TestCase.assertTrue;
 
 @RunWith(SpringRunner.class)
 @EnableAutoConfiguration
-@SpringBootTest(classes = S3Config.class)
+@SpringBootTest(classes = S3Autoconfig.class)
 @ActiveProfiles("test")
 public class S3FileServiceIntegrationTest {
 

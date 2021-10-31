@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan("software.plusminus.s3")
-public class S3Config {
+public class S3Autoconfig {
 
     @ConditionalOnMissingBean(AmazonS3.class)
     @Bean
