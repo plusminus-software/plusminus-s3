@@ -17,6 +17,7 @@ import software.plusminus.s3.config.S3Properties;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,8 +38,13 @@ public class S3FileService implements FileService {
 
     @Override
     public URL upload(String filepath, InputStream data) {
+        ObjectMetadata metadata = new ObjectMetadata();
+        String contentType = URLConnection.guessContentTypeFromName(filepath);
+        if (contentType != null) {
+            metadata.setContentType(contentType);
+        }
         PutObjectRequest request = new PutObjectRequest(s3Properties.getBucketName(),
-                filepath, data, new ObjectMetadata());
+                filepath, data, metadata);
         try {
             transferManager.upload(request.withCannedAcl(CannedAccessControlList.PublicRead))
                     .waitForUploadResult();
