@@ -44,7 +44,7 @@ public class S3FileServiceIntegrationTest {
     public void download_ReadsFileFromS3Bucket() throws IOException {
         //given
         InputStream inputStream = new ByteArrayInputStream(DATA);
-        String filepath = FOLDER + '/' + UUID.randomUUID().toString();
+        String filepath = FOLDER + '/' + UUID.randomUUID();
         s3FileService.upload(filepath, inputStream);
         //when
         String downloaded = IOUtils.toString(s3FileService.download(filepath));

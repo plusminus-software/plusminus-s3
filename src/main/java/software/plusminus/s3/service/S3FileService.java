@@ -9,6 +9,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.amazonaws.services.s3.transfer.TransferManager;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import software.plusminus.fs.exception.FileException;
 import software.plusminus.fs.service.FileService;
@@ -27,8 +28,13 @@ public class S3FileService implements FileService {
 
     public static final String URL_PATTERN = "https://s3.%s.amazonaws.com/%s/%s";
 
+    @Autowired
     private AmazonS3 amazonS3;
+
+    @Autowired
     private TransferManager transferManager;
+
+    @Autowired
     private S3Properties s3Properties;
 
     @Override
